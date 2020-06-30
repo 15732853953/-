@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <div id="app">
+
+        <div>
+            <table border="1" align="center" rules="all">
+                <tr>
+                    <td><button @click="saveUser()">添加</button></td>
+                </tr>
+                <tr colspan="100" align="center" bgcolor="#00ffff">
+                    <th><input type="checkbox"/></th>
+                    <th>用户编号</th>
+                    <th>用户名称</th>
+                    <th>年龄</th>
+                    <th>操作</th>
+                </tr>
+                <tr colspan="100" align="center" v-for="s in stulist">
+                    <td>
+                        <input type="checkbox"/>
+                    </td>
+                    <td>{{s.sid}}</td>
+                    <td>{{s.sname}}</td>
+                    <td>{{s.sage}}</td>
+                    <td>
+                        <button @click="findOne(s.sid)">请假</button>
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+
+        <div ref="div3" style="display: none">
+            <table border="1" rules="all">
+                <tr align="center">
+                    <td>用户名称</td>
+                    <td>
+                        <input type="text" v-model="stu.sname"/>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <th>请假时间</th>
+                    <td> <input type="number" v-model="stu.qjts"/></td>
+                </tr>
+                <tr>
+                    <td colspan="100">
+                        <button @click="saveqj()">保存</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div align="center" ref="div4" style="display: none">
+            <table border="1" rules="all">
+                <tr align="center">
+                    <td>用户名称</td>
+                    <td>
+                        <input type="text" v-model="stu.sname"/>
+                    </td>
+                </tr>
+                <tr align="center">
+                    <th>年龄</th>
+                    <td> <input type="text" v-model="stu.sage"/></td>
+                </tr>
+                <tr>
+                    <td colspan="100">
+                        <button @click="addUser()">保存</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+</body>
+<script type="text/javascript" src="vuejs/vuejs-2.5.16.js"></script>
+<script type="text/javascript" src="vuejs/axios-0.18.0.js"></script>
+<script type="text/javascript" src="vuejs/stu_list.js"></script>
+</html>
